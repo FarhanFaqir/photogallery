@@ -1,0 +1,40 @@
+#instance{
+    width:100%;
+}
+
+.col{
+    width:25%;
+}
+.float-left {
+    float:left;
+    width:25%; 
+    height: auto;
+}
+
+div.Gallery {
+    background-color: hsl(136, 32%, 88%);
+    margin: 10px;
+    border: solid;
+    border-style: solid;
+    border-color: white;
+    border-radius: 5px;
+    width: 20%;
+}
+
+
+div.Gallery:hover {
+    border-style: solid;
+    border-color: #f0e5ad;
+    border-radius: 5px;
+}
+
+div.Gallery img {
+    height: auto;
+    width:100%;
+}
+
+div.description {
+    padding: 10px;
+    text-align: center;
+    height:30px;
+}

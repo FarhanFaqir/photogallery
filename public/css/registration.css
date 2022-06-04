@@ -1,0 +1,68 @@
+body {
+    background-color: #d8ebdd;
+}
+
+h1 {
+    display: inline-block;
+    margin: 50px;
+    font-size: 50px;
+}
+
+label {
+    font-size: 20px;
+    font-family: 'Calibri';
+}
+
+input[type = submit] {
+    background-color: #b1e0be ;
+    padding: 10px 25px;
+    color: white;
+    font-size: 15px;
+    font:bolder;
+    border-style: solid;
+    border-color: white;
+    border-radius: 5px;
+}
+
+input[type = submit]:hover {
+    background-color: #f0e5ad;
+    color: white;
+}
+
+button{
+    background-color: #b1e0be ;
+    padding: 10px 25px;
+    color: white;
+    font-size: 15px;
+    font:bold;
+    border-style: solid;
+    border-color: white;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: #f0e5ad;
+    color: white;
+}
+
+input[type = reset] {
+    background-color: #b1e0be ;
+    padding: 10px 25px;
+    color: white;
+    font-size: 15px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 5px;
+}
+
+input[type = reset]:hover {
+    background-color: #f0e5ad;
+    color: white;
+}
+
+input[type = text], input[type = username], [type = password], [type=email] {
+    width: 250px;
+    padding: 10px 15px;
+    font-size: medium;
+    margin: 10px 0;
+    background-color: #fffef7;
+  }

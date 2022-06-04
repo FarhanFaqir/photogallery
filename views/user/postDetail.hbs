@@ -1,0 +1,57 @@
+{{> header }}
+
+{{!-- Login User Navbar --}}
+<nav class=" navbar navbar-expand-lg navbar-dark"
+    style="position: fixed; width: 100%; background-color: #212121; top:0px">
+    <div class="container">
+        <a href="" class="navbar-brand text-primary font-weight-bold p-3">Photolab</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto text-center">
+                <li style="color: #fff;" class="nav-item"><a href="#" class="nav-link"><i
+                            class="fas fa-user mr-1"></i>{{user.username}}</a></li>
+                <li class="nav-item"><a href="/user/logout?id={{user.id}}" class="nav-link">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <div style="margin-top: 78px; width: 100%;">
+        <div style="margin: auto; width: 600px;">
+            <img style="height: 300px; width: 500px;" src="../uploads/{{post.image}}" >
+            <div class="card-body">
+                <h3 class="card-title"> Title : {{post.title}}</h3>
+                <div>
+                    <p style="margin-bottom: 35px;">Comments</p>
+                    {{#each data}}
+                    <div style=" margin-top: -30px; width: 100%;" class="d-flex">
+                        <h5>{{this.username}} : </h5>
+                        <p class="ml-2">{{this.comment}}</p>
+                    </div><br>
+                    {{/each}}
+                </div>
+                <form class=" d-flex " method="post"
+                    action="/post/comment?id={{user.id}}&post_id={{post.id}}">
+                    <div class="form-group mb-3">
+                        <div class="row m-auto">
+                            <div class="d-flex">
+                                <input type="text" name="comment" id="comment" required class="form-control">
+                                <button style="font-size: 10px;" type="submit" class="btn btn-primary">Comment</button>
+                                <a href="/user/dashboard?id={{user.id}}" class="btn btn-secondary ml-4">Back</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{{> footer }}

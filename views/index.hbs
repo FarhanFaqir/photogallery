@@ -1,0 +1,46 @@
+{{> header }}
+{{> navbar }}
+
+<div class="container" style="margin-top: 40px;">
+    <header class="jumbotron" style="height: 250px;">
+        <div class="container">
+            <h1 style="margin-left: 0px;">Welcome to Photolab</h1>
+            <p>Feel free to share and comment on your friends posts. </p>
+            <div style="display: flex; width: 100%; justify-content: space-between;">
+                <p style="width: 200px;">
+                    <a class="btn btn-primary btn-large" href="/user/login">Sign In</a>
+                </p>
+
+                <form class=" d-flex " style="margin-right: 20px;" method="post" action="post/search">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="form-outline">
+                                <input type="search" name="search" required placeholder="Search post" class="form-control" />
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+        {{#each posts}}
+        <div style="margin: auto;" class="mb-4">
+            <div style="width: 18rem; border: 1px solid rgb(212, 212, 212); border-radius: 5%;">
+                <img class="card-img-top" style="max-width: 300px; max-height: 200px; border-radius: 5%;" src="uploads/{{this.image}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.title}}</h5>
+                </div>
+
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+
+{{> footer }}

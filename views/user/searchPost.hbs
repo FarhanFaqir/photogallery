@@ -1,0 +1,79 @@
+{{> header }}
+
+{{!-- Login User Navbar --}}
+<nav class=" navbar navbar-expand-lg navbar-dark"
+    style="position: fixed; width: 100%; background-color: #212121; top:0px">
+    <div class="container">
+        <a href="" class="navbar-brand text-primary font-weight-bold p-3">Photolab</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto text-center">
+                <li style="color: #fff;" class="nav-item"><a href="" class="nav-link"><i class="fas fa-user mr-1"></i>{{user.username}}</a></li>
+                <li class="nav-item"><a href="/user/logout?id={{user.id}}" class="nav-link">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{{!-- Body --}}
+<div class="container" style="margin-top: 40px;">
+    <header class="jumbotron" style="height: 250px;">
+        <div class="container">
+            <h1 style="margin-left: 0px;">Welcome to Photolab</h1>
+            <p>Feel free to share and comment on your friends posts. </p>
+            <div style="display: flex; width: 100%; justify-content: space-between;">
+                <p>
+                    <a class="btn btn-primary btn-large" href="/post/getForm?id={{user.id}}">Add new post</a>
+                    <a class="btn btn-primary btn-large" href="/post/get?id={{user.id}}">View all posts</a>
+                </p>
+
+                <form class=" d-flex " style="margin-right: 20px;" method="post"
+                    action="/user/searchPost?id={{user.id}}">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="form-outline">
+                                <input type="search" name="search" placeholder="Search post" class="form-control" />
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+        <div style="margin: auto;" class="mb-4">
+            <div style="width: 18rem; border: 1px solid rgb(212, 212, 212); border-radius: 5%; max-height: 400px;">
+                <img class="card-img-top" style="max-width: 300px; max-height: 200px; border-radius: 5%;"
+                    src="../uploads/{{post.image}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <form class=" d-flex " style="width: 100%;" method="post"
+                        action="/post/comment?id={{user.id}}&post_id={{post.id}}">
+                        <div class="form-group mb-3">
+                            <div class="row m-auto">
+                                <div class="d-flex">
+                                    <input type="text" name="comment" id="comment" required class="form-control">
+                                    <button style="font-size: 10px;" type="submit"
+                                        class="btn btn-primary">Comment</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div>
+                        <a href="/post/getById?id={{user.id}}&post_id={{post.id}}">Detail</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{{> footer }}
